@@ -48,6 +48,7 @@
             android:layout_weight="1">
 
             <ImageView
+                android:id="@+id/img_home"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:background="@drawable/homee"
@@ -60,6 +61,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
             <ImageView
+                android:id="@+id/img_download"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:background="@drawable/downloaddd"
