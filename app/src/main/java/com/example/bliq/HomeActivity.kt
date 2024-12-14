@@ -1,24 +1,20 @@
 package com.example.bliq
 
 import android.os.Bundle
-import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.view.WindowManager.LayoutParams
-import android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
+import android.widget.FrameLayout
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.get
+import androidx.fragment.app.Fragment
 import com.example.bliq.databinding.ActivityHomeBinding
-import com.example.bliq.databinding.ActivityHomeBinding.*
-import com.example.bliq.databinding.ActivityMainBinding
 
 class HomeActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityHomeBinding
+
+
     
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,33 +25,31 @@ class HomeActivity : AppCompatActivity() {
 
         binding = ActivityHomeBinding.inflate(layoutInflater)
 
+        replaceFragment(HomeFragment(),R.id.fragmentreplace)
 
-        //enableEdgeToEdge()
-        //setContentView(binding.root)
-        /*ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }*/
+        val frame_home = findViewById<FrameLayout>(R.id.frame_home)
+        val frame_download = findViewById<FrameLayout>(R.id.frame_download)
 
-        binding.frameHome.setOnClickListener(View.OnClickListener {
+        frame_home.setOnClickListener {
+            replaceFragment(HomeFragment(), R.id.fragmentreplace)
             Toast.makeText(this,"This is Home",Toast.LENGTH_LONG).show()
-        })
+        }
 
-        binding.frameDownload.setOnClickListener(View.OnClickListener {
+        frame_download.setOnClickListener {
+            replaceFragment(DownloadFragment(), R.id.fragmentreplace)
             Toast.makeText(this,"This is Download",Toast.LENGTH_LONG).show()
-        })
-
-
-
-
-
-
-
-
-
-
+        }
 
 
     }
+
+    private fun replaceFragment(fragment: Fragment, containerId: Int) {
+        //supportFragmentManager.beginTransaction().add(R.id.fragmentreplace,fragment).commit()
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        val replace = fragmentTransaction.replace(containerId, fragment)
+        fragmentTransaction.addToBackStack(null) // Optional: Adds transaction to backstack
+        fragmentTransaction.commit()
+    }
+
 }
+
