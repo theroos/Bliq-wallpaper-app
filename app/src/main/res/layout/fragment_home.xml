@@ -5,11 +5,24 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="This is home fragment"
-        android:gravity="center"/>
+        android:layout_height="53dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bliq Wallpaper"
+            android:textSize="40dp"
+            android:textColor="@color/primary_color"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"/>
+
+    </LinearLayout>
+
+
+
+
 
 </FrameLayout>

@@ -6,10 +6,29 @@
     tools:context=".DownloadFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="This is download fragment.."
-        android:gravity="center"/>
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="53dp"
+           android:gravity="center_vertical">
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Downloaded"
+               android:textSize="40dp"
+               android:textColor="@color/primary_color"
+               android:layout_marginLeft="14dp"
+               android:layout_marginRight="14dp"/>
+
+       </LinearLayout>
+
+   </RelativeLayout>
+
+
 
 </FrameLayout>
